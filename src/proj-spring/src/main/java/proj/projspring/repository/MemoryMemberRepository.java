@@ -1,11 +1,13 @@
 package proj.projspring.repository;
 
+import org.springframework.stereotype.Repository;
 import proj.projspring.domain.Member;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository{
     private Map<Long, Member> store = new HashMap<>();
     private long sequence = 0L;
