@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>회원 목록</title>
+</head>
+<body>
+
+<h1>상품 리스트 출력 예제</h1>
+
+<table border="1">
+  <thead>
+  <tr>
+    <td>순번</td>
+    <td>이름</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="list, status:${lists}">
+    <td th:switch="${status.even}" th:text="짝수">
+      <span th:case="ture">짝수</span>
+      <span th:case="false">홀수</span>
+    <td th:if="${list.name}"></td>
+    </td>
+
+  </tr>
+
+  </tbody>
+
+
+</table>
+
+</body>
+</html>

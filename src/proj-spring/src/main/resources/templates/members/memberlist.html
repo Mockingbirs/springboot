@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 목록</title>
+</head>
+<body>
+
+<h1>상품 리스트 출력 예제</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <td>순번</td>
+        <td>이름</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list, status:${lists}">
+        <td th:text="${list.id}"></td>
+        <td th:text="${list.name}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -11,9 +11,7 @@ import java.util.Map;
 @Repository
 public class MemoryMemberRepository implements MemberRepository{
     //private Map<Long, Member> store = new HashMap<>();
-
     private List<Member> store = new ArrayList<>();
-
     private long sequence = 0L;
 
     @Override

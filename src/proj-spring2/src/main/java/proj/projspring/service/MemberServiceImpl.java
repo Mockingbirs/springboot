@@ -3,7 +3,7 @@ package proj.projspring.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import proj.projspring.domain.Member;
-import proj.projspring.repository.MemoryMemberRepository;
+import proj.projspring.repository.MemberRepository;
 
 import java.util.List;
 
@@ -11,18 +11,16 @@ import java.util.List;
 public class MemberServiceImpl implements MemberService{
 
     @Autowired
-    private MemoryMemberRepository repository;
+    private MemberRepository repository;
     @Override
     public Long join(Member member) {
-
         repository.save(member);
         return member.getId();
     }
 
     @Override
     public List<Member> findAll() {
+
         return repository.findAll();
     }
-
-
 }

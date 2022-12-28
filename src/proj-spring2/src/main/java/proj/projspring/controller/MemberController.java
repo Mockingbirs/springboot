@@ -18,35 +18,52 @@ public class MemberController {
     private MemberService service;
 
     @GetMapping("/")
-    public String home(){
-
+    public String member(Model model){
         return "member";
     }
 
-    @GetMapping("/members/new")
+    @GetMapping(value = "/members/new")
     public String createForm(){
         return "members/createMemberForm";
     }
 
     @PostMapping(value = "/members/new")
     public String create(MemberForm form){
-    Member member = new Member();
+        Member member = new Member();
 
-    member.setName(form.getName());
+        member.setName(form.getName());
 
-    Long id = service.join(member);
+        Long id = service.join(member);
+        System.out.println("=> 아이디 : " + id);
 
-    System.out.println("=> 아이디 : " + id);
-
-    return "redirect:/";
+        return "redirect:/";
     }
 
     @GetMapping(value = "/members")
     public String list(Model model){
         List<Member> lists = service.findAll();
+        model.addAttribute( "lists", lists);
+
+
+        return "members/memberList";
+    }
+
+    @GetMapping(value = "/members2")
+    public String list2(Model model){
+        List<Member> lists = service.findAll();
 
         model.addAttribute("lists", lists);
 
-        return "members/memberlist";
+        return "thymeleaf/thymeleaf01";
     }
+
+    @GetMapping(value = "/members3")
+    public String list3(Model model){
+        List<Member> lists = service.findAll();
+
+        model.addAttribute("lists", lists);
+
+        return "thymeleaf/thymeleaf02";
+    }
+
 }
